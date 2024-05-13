@@ -1,27 +1,28 @@
-import { useState } from "react";
+import { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import "./App.css";
-import reactLogo from "./assets/react.svg";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { AppRoutes } from "@/routes";
+import { registerServices } from "@/services/di";
+import { Toaster } from "@/shadcn/components/ui/toaster";
+
+import "./index.css";
+
+const queryClient = new QueryClient();
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  console.log("useEffect");
+  registerServices();
   return (
-    <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="text-pretty text-red-500">Click on the Vite and React logos to learn more</p>
-    </>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <Suspense fallback={<h2>Loading</h2>}>
+          <AppRoutes />
+          <Toaster />
+        </Suspense>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 }
 

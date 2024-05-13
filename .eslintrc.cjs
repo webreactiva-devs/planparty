@@ -32,19 +32,27 @@ module.exports = {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "tsconfig.json",
+      },
+    },
   },
   rules: {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
     "import/default": 0,
     "import/no-named-as-default-member": 0,
     "import/no-unresolved": "warn",
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "unused-imports/no-unused-imports": "warn",
     "no-unused-vars": "warn",
     "no-useless-constructor": "off",
     "no-var": "error",
     "prefer-const": "error",
     "prefer-rest-params": "error",
     "prefer-spread": "error",
+    "react/react-in-jsx-scope": "off",
+    "unused-imports/no-unused-imports": "warn",
   },
 };
