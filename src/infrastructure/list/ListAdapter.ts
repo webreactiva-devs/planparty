@@ -5,9 +5,10 @@ import type { CreateList, List, UpdateList } from "@/domain/list/types";
 export class ListAdapter implements IListAdapter {
   apiModelAdapter(data: Tables<"list">): List {
     return {
-      id: Number(data.id),
-      name: data.name,
-      createdAt: new Date(data.created_at),
+      id: data.id,
+      name: data.name || "",
+      user: data.user || "",
+      created_at: new Date(data.created_at),
     };
   }
   createAdapter(data: CreateList): TablesInsert<"list"> {

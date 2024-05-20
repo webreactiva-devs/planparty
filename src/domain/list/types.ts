@@ -7,7 +7,6 @@ export type List = {
   name: string;
   user: string;
   created_at: Date;
-  updated_at: Date;
 };
 
 export type CreateList = z.infer<typeof createListSchema>;
