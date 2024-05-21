@@ -8,7 +8,7 @@ const ListDeletePage = lazy(() => import("./delete/ListDeletePage"));
 export class ListRoutes {
   static list = "/lists";
   static create = "/lists/new";
-  static delete = (id: number) => `/lists/${id}/delete`;
+  static delete = (id: string) => `/lists/${id}/delete`;
 
   static init = () => (
     <Route path={"/lists"} element={<ListListPage />}>
