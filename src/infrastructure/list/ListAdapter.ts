@@ -14,6 +14,7 @@ export class ListAdapter implements IListAdapter {
   createAdapter(data: CreateList): TablesInsert<"list"> {
     return {
       name: data.name,
+      user: data.user,
     };
   }
   updateAdapter(data: UpdateList): TablesUpdate<"list"> {
