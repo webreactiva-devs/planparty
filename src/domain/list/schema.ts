@@ -21,13 +21,13 @@ export const INITAL_CREATE_LIST = {
 
 export const updateListSchema = z.object({
   name: z
-    .string({ required_error: "list.name.required" })
-    .min(1, { message: "list.name.required" })
-    .max(100, { message: "list.name.format" }),
+    .string({ required_error: translate("list.name.required") })
+    .min(1, { message: translate("list.name.required") })
+    .max(100, { message: translate("list.name.format") }),
   user: z
-    .string({ required_error: "list.user.required" })
-    .min(1, { message: "list.user.required" })
-    .max(100, { message: "list.user.format" }),
+    .string({ required_error: translate("list.user.required") })
+    .min(1, { message: translate("list.user.required") })
+    .max(100, { message: translate("list.user.format") }),
 });
 
 export const getInitialUpdateList = (list: List) => ({
