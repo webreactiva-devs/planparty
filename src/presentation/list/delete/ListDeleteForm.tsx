@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 import type { List } from "@/domain/list/types";
 import { useMutationDeleteList } from "@/services/list/services";
 import { Button } from "@/shadcn/components/ui/button";
