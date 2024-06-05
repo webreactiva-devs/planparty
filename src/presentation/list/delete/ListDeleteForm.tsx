@@ -10,14 +10,12 @@ type Props = {
 };
 
 export default function ListDeleteForm({ list, afterSubmit }: Props) {
-  const navigate = useNavigate();
   const mutation = useMutationDeleteList(list.id);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     mutation.mutateAsync().finally(() => {
       afterSubmit();
-      navigate("/lists");
     });
   };
 
