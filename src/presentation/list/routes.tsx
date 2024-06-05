@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { Route } from "react-router-dom";
 
 const ListListPage = lazy(() => import("./list/ListListPage"));
-const ListCreate = lazy(() => import("./create/ListCrear"));
+const ListCreate = lazy(() => import("./create/ListCreate"));
 
 export class ListRoutes {
   static list = "/lists";
