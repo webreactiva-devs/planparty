@@ -1,6 +1,6 @@
 import { supabase } from "@/api/client";
 import type { BaseItemRepository } from "@/domain/item/item.repository";
-import type { CreateItem, Item, UpdateItem } from "@/domain/item/types";
+import type { Item } from "@/domain/item/types";
 import { ItemAdapter } from "@/infrastructure/item/ItemAdapter";
 
 export class ItemRepository implements BaseItemRepository {
@@ -16,7 +16,7 @@ export class ItemRepository implements BaseItemRepository {
     if (error) {
       throw new Error(error.message);
     }
-    const items = data?.map((item: unknown) => ItemRepository.adapter.apiModelAdapter(item));
+    const items = data?.map((item) => ItemRepository.adapter.apiModelAdapter(item));
     return items ?? [];
   }
   async findOne(id: string): Promise<Item | null> {
