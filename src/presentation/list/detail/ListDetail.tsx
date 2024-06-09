@@ -5,7 +5,7 @@ import { Label } from "@/shadcn/components/ui/label";
 import { dateFormatter } from "@/utils/formatDate";
 
 export default function ListDetail(id: any) {
-  const { data, isError, isLoading } = useGetOneList(id);
+  const { data: list, isError, isLoading, isSuccess } = useGetOneList(id);
 
   return (
     <div className="container">
@@ -19,7 +19,7 @@ export default function ListDetail(id: any) {
           <AlertTitle>Error</AlertTitle>
         </Alert>
       )}
-      {data !== null && (
+      {isSuccess && list !== null && (
         <Card>
           <CardHeader>
             <CardTitle>List Details</CardTitle>
@@ -27,15 +27,15 @@ export default function ListDetail(id: any) {
           <CardContent>
             <div>
               <Label>Name:</Label>
-              <p>{data.name}</p>
+              <p>{list.name}</p>
             </div>
             <div>
               <Label>User:</Label>
-              <p>{data.user}</p>
+              <p>{list.user}</p>
             </div>
             <div>
               <Label>Created At:</Label>
-              <p>{dateFormatter.format(data.created_at)}</p>
+              <p>{dateFormatter.format(list.created_at)}</p>
             </div>
           </CardContent>
         </Card>
