@@ -6,7 +6,7 @@ import { dateFormatter } from "@/utils/formatDate";
 
 export default function ListDetail(id: any) {
   const { data, isError, isLoading } = useGetOneList(id);
-  const list = data;
+
   return (
     <div className="container">
       {isLoading && (
@@ -19,26 +19,27 @@ export default function ListDetail(id: any) {
           <AlertTitle>Error</AlertTitle>
         </Alert>
       )}
-
-      <Card>
-        <CardHeader>
-          <CardTitle>List Details</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div>
-            <Label>Name:</Label>
-            <p>{list.name}</p>
-          </div>
-          <div>
-            <Label>User:</Label>
-            <p>{list.user}</p>
-          </div>
-          <div>
-            <Label>Created At:</Label>
-            <p>{dateFormatter.format(list.created_at)}</p>
-          </div>
-        </CardContent>
-      </Card>
+      {data !== null && (
+        <Card>
+          <CardHeader>
+            <CardTitle>List Details</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <Label>Name:</Label>
+              <p>{data.name}</p>
+            </div>
+            <div>
+              <Label>User:</Label>
+              <p>{data.user}</p>
+            </div>
+            <div>
+              <Label>Created At:</Label>
+              <p>{dateFormatter.format(data.created_at)}</p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
