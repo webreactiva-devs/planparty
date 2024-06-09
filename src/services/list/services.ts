@@ -40,3 +40,13 @@ export function useMutationUpdateList(id: List["id"]) {
     errorMessage: "No se pudo editar el lista",
   });
 }
+
+export function useMutationDeleteList(id: List["id"]) {
+  const key = [KEY_LIST];
+  return useMutationGeneral<void>({
+    key,
+    fn: () => listRepository.delete(id),
+    successMessage: "Lista eliminada correctamente",
+    errorMessage: "No se pudo eliminar la lista",
+  });
+}

@@ -11,4 +11,5 @@ export interface BaseListRepository {
   findOne(id: string): Promise<List | null>;
   create(data: CreateList): Promise<void>;
   update(id: string, data: UpdateList): Promise<void>;
+  delete(id: string): Promise<void>;
 }
