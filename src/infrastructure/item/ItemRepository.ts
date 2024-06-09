@@ -32,7 +32,7 @@ export class ItemRepository implements BaseItemRepository {
     if (error) {
       throw new Error(error.message);
     }
-    const items = data.map(ItemRepository.adapter.apiModelAdapter);
-    return items;
+    const items = data?.map((item) => ItemRepository.adapter.apiModelAdapter(item));
+    return items ?? [];
   }
 }

@@ -13,7 +13,7 @@ export function useGetLists() {
     fn: () => listRepository.findAll(),
   });
 }
-export function useEstasListas(id: List["id"]) {
+export function useGetOneList(id: List["id"]) {
   const key = [KEY_LIST, id];
   return useGetOne<List | null>({
     key,
