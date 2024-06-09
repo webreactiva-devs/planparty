@@ -26,8 +26,8 @@ export function useMutationCreateList() {
   return useMutationGeneral<CreateList>({
     key,
     fn: (data) => listRepository.create(data),
-    successMessage: "List creado correctamente",
-    errorMessage: "No se pudo crear el List",
+    successMessage: "Lista creada correctamente",
+    errorMessage: "No se pudo crear la lista",
   });
 }
 
@@ -36,7 +36,7 @@ export function useMutationUpdateList(id: List["id"]) {
   return useMutationGeneral<UpdateList>({
     key,
     fn: (data) => listRepository.update(id, data),
-    successMessage: "List editado correctamente",
-    errorMessage: "No se pudo editar el List",
+    successMessage: "Lista editada correctamente",
+    errorMessage: "No se pudo editar el lista",
   });
 }

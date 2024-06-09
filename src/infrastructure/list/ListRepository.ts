@@ -16,8 +16,8 @@ export class ListRepository implements BaseListRepository {
     if (error) {
       throw new Error(error.message);
     }
-    const dummies = data?.map((list) => ListRepository.adapter.apiModelAdapter(list));
-    return dummies ?? [];
+    const lists = data?.map((list) => ListRepository.adapter.apiModelAdapter(list));
+    return lists ?? [];
   }
   async findOne(id: string): Promise<List | null> {
     const { data, error } = await supabase.from("list").select().eq("id", id).limit(1).single();

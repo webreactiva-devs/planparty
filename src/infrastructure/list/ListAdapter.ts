@@ -6,14 +6,15 @@ export class ListAdapter implements IListAdapter {
   apiModelAdapter(data: Tables<"list">): List {
     return {
       id: data.id,
-      name: data.name || "",
-      user: data.user || "",
+      name: data.name ?? "",
+      user: data.user ?? "",
       created_at: new Date(data.created_at),
     };
   }
   createAdapter(data: CreateList): TablesInsert<"list"> {
     return {
       name: data.name,
+      user: data.user,
     };
   }
   updateAdapter(data: UpdateList): TablesUpdate<"list"> {
