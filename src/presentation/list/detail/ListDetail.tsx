@@ -1,12 +1,10 @@
-import { useParams } from "react-router-dom";
-
 import { useGetOneList } from "@/services/list/services";
 import { Alert, AlertTitle } from "@/shadcn/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shadcn/components/ui/card";
 import { Label } from "@/shadcn/components/ui/label";
 import { dateFormatter } from "@/utils/formatDate";
 
-export default function ListDetail(id: string) {
+export default function ListDetail(id: any) {
   const { data, isError, isLoading } = useGetOneList(id);
   const list = data;
   return (
