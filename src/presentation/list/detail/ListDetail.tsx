@@ -4,11 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/shadcn/components/ui
 import { Label } from "@/shadcn/components/ui/label";
 import { dateFormatter } from "@/utils/formatDate";
 
-export default function ListDetail(id: any) {
+type Props = {
+  id: string;
+};
+
+export default function ListDetail({ id }: Props) {
   const { data: list, isError, isLoading, isSuccess } = useGetOneList(id);
 
   return (
-    <div className="container">
+    <>
       {isLoading && (
         <Alert>
           <AlertTitle>Loading...</AlertTitle>
@@ -40,6 +44,6 @@ export default function ListDetail(id: any) {
           </CardContent>
         </Card>
       )}
-    </div>
+    </>
   );
 }
