@@ -10,8 +10,12 @@ import {
 } from "@/shadcn/components/ui/table";
 import { dateFormatter } from "@/utils/formatDate";
 
-export default function ItemItem() {
-  const { data, isError, isLoading } = useGetItems();
+type Props = {
+  listId?: string;
+};
+
+export default function ItemItem({ listId }: Props) {
+  const { data, isError, isLoading } = useGetItems(listId);
 
   return (
     <Table>

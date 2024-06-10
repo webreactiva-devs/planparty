@@ -5,6 +5,11 @@ const ItemListPage = lazy(() => import("./list/ItemListPage"));
 
 export class ItemRoutes {
   static item = "/items";
+  static itemsByList = (id: string) => `/lists/${id}/items`;
 
-  static init = () => <Route path={"/items"} element={<ItemListPage />}></Route>;
+  static init = () => (
+    <>
+      <Route path={"/items"} element={<ItemListPage />}></Route>
+    </>
+  );
 }

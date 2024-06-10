@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
+import { ItemRoutes } from "@/presentation/item/routes";
 import { ListRoutes } from "@/presentation/list/routes";
 import { useGetLists } from "@/services/list/services";
 import { Button } from "@/shadcn/components/ui/button";
@@ -35,7 +36,7 @@ export default function ListList() {
         {data?.map((list) => (
           <TableRow key={list.id} className="hover:cursor-pointer">
             <TableCell>
-              <Link to={ListRoutes.detail(list.id)}>{list.name}</Link>
+              <Link to={ItemRoutes.itemsByList(list.id)}>{list.name}</Link>
             </TableCell>
             <TableCell>{list.user}</TableCell>
             <TableCell className="text-right">{dateFormatter.format(list.created_at)}</TableCell>

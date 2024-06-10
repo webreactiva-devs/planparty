@@ -6,11 +6,11 @@ import { serviceLocator } from "@/services/serviceLocator";
 
 const itemRepository = serviceLocator.get<BaseItemRepository>("ItemRepository");
 
-export function useGetItems() {
-  const key = [KEY_ITEM];
+export function useGetItems(listId?: string) {
+  const key = [KEY_ITEM, listId];
   return useGetList<Item[]>({
     key,
-    fn: () => itemRepository.findAll(),
+    fn: () => (listId ? itemRepository.findByListId(listId) : itemRepository.findAll()),
   });
 }
 export function useGetOneItem(id: Item["id"]) {
@@ -18,13 +18,5 @@ export function useGetOneItem(id: Item["id"]) {
   return useGetOne<Item | null>({
     key,
     fn: () => itemRepository.findOne(id),
-  });
-}
-
-export function useGetItemsByList(listId: Item["list_id"]) {
-  const key = [KEY_ITEM, listId];
-  return useGetList<Item[] | null>({
-    key,
-    fn: () => itemRepository.findByListId(listId),
   });
 }
