@@ -7,5 +7,5 @@ export interface IItemAdapter {
 export interface BaseItemRepository {
   findAll(): Promise<Item[]>;
   findOne(id: string): Promise<Item | null>;
-  findByListId(listId: string): Promise<Item[] | null>;
+  findByListId(listId: string): Promise<Item[]>;
 }

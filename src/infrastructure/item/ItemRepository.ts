@@ -27,7 +27,7 @@ export class ItemRepository implements BaseItemRepository {
     const item = ItemRepository.adapter.apiModelAdapter(data);
     return item;
   }
-  async findByListId(listId: string): Promise<Item[] | null> {
+  async findByListId(listId: string): Promise<Item[]> {
     const { data, error } = await supabase.from("item").select().eq("list_id", listId);
     if (error) {
       throw new Error(error.message);
