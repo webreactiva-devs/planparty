@@ -2,6 +2,9 @@
 
 PlanParty es una aplicación web diseñada para facilitar la planificación y gestión de eventos. Este repositorio contiene el código fuente y la documentación del proyecto.
 
+![planparty-logo](https://github.com/webreactiva-devs/planparty/assets/1122071/345a3cfc-6429-4f39-807b-6d9e663a177e)
+
+
 ## Características
 
 - Crear y gestionar eventos
@@ -79,6 +82,5 @@ Después de iniciar el servidor de desarrollo, puedes acceder a la aplicación e
 
 Para preguntas o soporte, por favor abre un issue en este repositorio.
 
-```
+![golden-shiny-glitter-sparkles-light-bokeh-on-dar-2023-11-27-04-54-56-utc](https://github.com/webreactiva-devs/planparty/assets/1122071/3af19cdc-b138-46bc-bdc1-6b4d0bda7faf)
 
-Este archivo README incluye una descripción más detallada de la estructura del código y los componentes utilizados en el proyecto, además de las instrucciones básicas de instalación y uso, ahora en español.
