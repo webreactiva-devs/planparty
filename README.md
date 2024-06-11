@@ -17,15 +17,14 @@ PlanParty es una aplicación web diseñada para facilitar la planificación y ge
 - **React:** Biblioteca para construir interfaces de usuario.
 - **Tailwind CSS:** Framework de CSS para un diseño rápido y eficiente.
 
-### Backend
+### Backend as a Service
 
-- **Node.js:** Entorno de ejecución para el backend.
-- **Express:** Framework para construir aplicaciones web y APIs.
+- **Supabase:** Donde tendremos nuestra persistencia de datos
 
 ### Herramientas de Construcción
 
+- **Bun:** Runner como alternativa a node
 - **Vite:** Herramienta de desarrollo rápida y ligera.
-- **PostCSS:** Utilizado para transformar estilos CSS con plugins.
 
 ## Estructura del Proyecto
 
@@ -61,11 +60,11 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
    ```
 3. Instala las dependencias:
    ```bash
-   npm install
+   bun install
    ```
 4. Inicia el servidor de desarrollo:
    ```bash
-   npm run dev
+   bun dev
    ```
 
 ## Uso
