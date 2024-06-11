@@ -5,7 +5,6 @@ import { ListRepository } from "@/infrastructure/list/ListRepository";
 import { serviceLocator } from "@/services/serviceLocator";
 
 export function registerServices() {
-  console.log("registerServices");
   serviceLocator.register<BaseDummyRepository>("DummyRepository", new DummyRepository());
   serviceLocator.register<BaseListRepository>("ListRepository", new ListRepository());
 }
