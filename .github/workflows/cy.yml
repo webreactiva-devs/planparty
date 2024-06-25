@@ -1,0 +1,64 @@
+name: CI V1
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: "latest"
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Ensure jq and bc are installed
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq bc
+
+      - name: Run lint
+        run: |
+          bun run lint
+          if [ $? -ne 0 ]; then
+            echo "Linting errors detected!"
+            exit 1
+          fi
+
+      - name: Run typecheck
+        run: |
+          bun run typecheck
+          if [ $? -ne 0 ]; then
+            echo "Type checking errors detected!"
+            exit 1
+          fi
+
+      - name: Run tests with coverage
+        run: bun run test
+
+      - name: Verify coverage
+        run: |
+          COVERAGE=$(jq '.total.lines.pct' < coverage/coverage-summary.json)
+          echo "Coverage: $COVERAGE%"
+          if (( $(echo "$COVERAGE < 85" | bc -l) )); then
+            echo "Coverage threshold not met. Current coverage is $COVERAGE%"
+            exit 1
+          fi
+
+      - name: Build project
+        run: |
+          bun run build
+          if [ $? -ne 0 ]; then
+            echo "Build failed!"
+            exit 1
+          fi

@@ -16,6 +16,8 @@ export default defineConfig({
     coverage: {
       include: ["src/**/*.{js,jsx,ts,tsx}"],
       exclude: ["src/api/**", "src/shadcn/**", "src/App.tsx", "src/main.tsx", "src/**/*.d.ts"],
+      reporter: ["text", "text-summary", "json-summary"],
+      reportOnFailure: true,
     },
   },
 });
