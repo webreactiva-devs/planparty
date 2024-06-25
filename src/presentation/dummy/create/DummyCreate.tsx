@@ -20,7 +20,6 @@ export default function DummyCreate() {
 
   const onSubmit = (formData: any, e: any) => {
     e.preventDefault();
-    console.log(formData);
     mutation.mutateAsync(formData).finally(() => {
       afterSubmit();
     });

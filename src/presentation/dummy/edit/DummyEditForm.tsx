@@ -16,7 +16,6 @@ export default function DummyEditForm({ dummy, afterSubmit }: Props) {
   const mutation = useMutationUpdateDummy(dummy.id);
   const onSubmit = (formData: any, e: any) => {
     e.preventDefault();
-    console.log(formData);
     mutation.mutateAsync(formData).finally(() => {
       afterSubmit();
     });
