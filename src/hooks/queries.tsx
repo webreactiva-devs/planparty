@@ -57,24 +57,37 @@ export function useMutationGeneral<T, U = void>({
   errorMessage,
   properties = {},
 }: MutationGeneralProps<T, U>): UseMutationResult<U, unknown, T> {
-  const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const handleSuccess = useSuccessToast();
+  const handleError = useErrorToast();
   return useMutation({
     mutationFn: fn,
-    onSuccess: () => {
-      if (successMessage) {
-        toast({
-          title: successMessage,
-        });
-      }
-      queryClient.invalidateQueries({ queryKey: key });
-    },
-    onError: () => {
-      toast({
-        title: errorMessage ?? "Se ha producido un error inesperado",
-        variant: "destructive",
-      });
-    },
+    onSuccess: () => handleSuccess(key, successMessage),
+    onError: () => handleError(errorMessage),
     ...properties,
   });
+}
+
+export function useSuccessToast() {
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+
+  return (key: MutationKey, successMessage?: string) => {
+    if (successMessage) {
+      toast({
+        title: successMessage,
+      });
+    }
+    queryClient.invalidateQueries({ queryKey: key });
+  };
+}
+
+export function useErrorToast() {
+  const { toast } = useToast();
+
+  return (errorMessage?: string) => {
+    toast({
+      title: errorMessage ?? "Se ha producido un error inesperado",
+      variant: "destructive",
+    });
+  };
 }

@@ -40,4 +40,10 @@ export class ListRepository implements BaseListRepository {
       throw new Error(error.message);
     }
   }
+  async delete(id: string): Promise<void> {
+    const { error } = await supabase.from("list").delete().eq("id", id);
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
 }

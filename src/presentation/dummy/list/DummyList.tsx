@@ -27,8 +27,16 @@ export default function DummyList() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {isLoading && <TableRow>Loading...</TableRow>}
-        {isError && <TableRow>Error</TableRow>}
+        {isLoading && (
+          <TableRow>
+            <TableCell colSpan={3}>Loading...</TableCell>
+          </TableRow>
+        )}
+        {isError && (
+          <TableRow>
+            <TableCell colSpan={3}>Error</TableCell>
+          </TableRow>
+        )}
         {data?.map((dummy) => (
           <TableRow
             key={dummy.id}
@@ -37,7 +45,6 @@ export default function DummyList() {
           >
             <TableCell>{dummy.name}</TableCell>
             <TableCell>{dummy.description}</TableCell>
-            <TableCell className="text-right">{dateFormatter.format(dummy.createdAt)}</TableCell>
             <TableCell className="text-right">{dateFormatter.format(dummy.createdAt)}</TableCell>
           </TableRow>
         ))}
