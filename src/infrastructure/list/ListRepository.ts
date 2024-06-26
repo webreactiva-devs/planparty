@@ -16,6 +16,7 @@ export class ListRepository implements BaseListRepository {
     if (error) {
       throw new Error(error.message);
     }
+    // @ts-ignore
     const lists = data?.map((list) => ListRepository.adapter.apiModelAdapter(list));
     return lists ?? [];
   }

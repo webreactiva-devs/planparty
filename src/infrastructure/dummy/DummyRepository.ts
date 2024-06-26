@@ -16,6 +16,7 @@ export class DummyRepository implements BaseDummyRepository {
     if (error) {
       throw new Error(error.message);
     }
+    // @ts-ignore
     const dummies = data?.map((dummy) => DummyRepository.adapter.apiModelAdapter(dummy));
     return dummies ?? [];
   }

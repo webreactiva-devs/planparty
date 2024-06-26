@@ -16,6 +16,7 @@ export class ItemRepository implements BaseItemRepository {
     if (error) {
       throw new Error(error.message);
     }
+    // @ts-ignore
     const items = data?.map((item) => ItemRepository.adapter.apiModelAdapter(item));
     return items ?? [];
   }
@@ -32,6 +33,7 @@ export class ItemRepository implements BaseItemRepository {
     if (error) {
       throw new Error(error.message);
     }
+    // @ts-ignore
     const items = data?.map((item) => ItemRepository.adapter.apiModelAdapter(item));
     return items ?? [];
   }
