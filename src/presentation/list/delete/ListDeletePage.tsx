@@ -1,13 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 
 import ListDeleteForm from "@/presentation/list/delete/ListDeleteForm";
-import { useEstasListas } from "@/services/list/services";
+import { useGetOneList } from "@/services/list/services";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/shadcn/components/ui/sheet";
 
 export default function ListDeletePage() {
   const navigate = useNavigate();
   const { id } = useParams() as { id: string };
-  const { data, isError, isLoading, isSuccess } = useEstasListas(id);
+  const { data, isError, isLoading, isSuccess } = useGetOneList(id);
 
   const afterSubmit = () => {
     navigate("/lists");
