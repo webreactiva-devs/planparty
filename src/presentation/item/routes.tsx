@@ -10,6 +10,7 @@ export class ItemRoutes {
   static init = () => (
     <>
       <Route path={"/items"} element={<ItemListPage />}></Route>
+      <Route path="/lists/:id/items" element={<ItemListPage />} />
     </>
   );
 }
