@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 
+import translate from "@/locales/translate";
 import ListEditForm from "@/presentation/list/edit/ListEditForm";
 import { ListRoutes } from "@/presentation/list/routes";
 import { useGetOneList } from "@/services/list/services";
@@ -18,10 +19,11 @@ function ListEditPage() {
     <Sheet open onOpenChange={afterSubmit}>
       <SheetContent className="sm:max-w-[650px]">
         <SheetHeader>
-          <SheetTitle>Editar Lista</SheetTitle>
+          <SheetTitle>{translate("list.edit.title")}</SheetTitle>
         </SheetHeader>
-        {isLoading && <p>Cargando...</p>}
-        {isError && <p>Error</p>}
+        <SheetTitle></SheetTitle>
+        {isLoading && <p>{translate("common.loading")}</p>}
+        {isError && <p>{translate("common.error")}</p>}
         {isSuccess && data !== null && <ListEditForm list={data} afterSubmit={afterSubmit} />}
       </SheetContent>
     </Sheet>

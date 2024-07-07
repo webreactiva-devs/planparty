@@ -1,5 +1,6 @@
 import type { List } from "@/domain/list/types";
 import { useFormUpdateList } from "@/hooks/list/forms";
+import translate from "@/locales/translate";
 import TextInput from "@/presentation/shared/form/text-input";
 import { useMutationUpdateList } from "@/services/list/services";
 import { Button } from "@/shadcn/components/ui/button";
@@ -28,15 +29,15 @@ export default function ListEditForm({ list, afterSubmit }: Props) {
           <TextInput
             name="name"
             control={methodsForm.control}
-            label="Nombre"
+            label={translate("list.name.label")}
             required
-            description="El nombre de la lista"
+            description={translate("list.name.description")}
           />
         </div>
         <div className="flex flex-row justify-end">
           <Button type="submit" disabled={mutation.status === "pending"}>
-            Guardar cambios
-          </Button>
+            {translate("list.edit.submit")}{" "}
+          </Button>{" "}
         </div>
       </form>
     </Form>
