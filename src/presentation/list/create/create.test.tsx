@@ -16,7 +16,7 @@ vi.mock("react-router-dom", async (importOriginal) => {
   };
 });
 
-vi.mock("@/services/List/services", () => ({
+vi.mock("@/services/list/services", () => ({
   useMutationCreateList: vi.fn(),
 }));
 
