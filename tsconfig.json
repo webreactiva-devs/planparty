@@ -20,6 +20,7 @@
     /* Linting */
     "strict": true,
     "target": "ES2020",
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     "useDefineForClassFields": true
   },
   "include": ["src"],

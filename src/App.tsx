@@ -12,7 +12,6 @@ import "./index.css";
 const queryClient = new QueryClient();
 
 function App() {
-  console.log("useEffect");
   registerServices();
   return (
     <BrowserRouter>

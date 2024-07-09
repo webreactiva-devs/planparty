@@ -32,5 +32,5 @@ export const updateDummySchema = z.object({
 
 export const getInitialUpdateDummy = (dummy: Dummy) => ({
   name: dummy.name,
-  description: dummy.description ?? undefined,
+  description: dummy?.description ?? undefined,
 });
