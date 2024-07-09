@@ -8,6 +8,7 @@ on:
 
 jobs:
   verify:
+    environment: test
     runs-on: ubuntu-latest
 
     steps:
@@ -44,6 +45,10 @@ jobs:
           fi
 
       - name: Run tests with coverage
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
         run: bun run test
 
       - name: Verify coverage
@@ -56,6 +61,10 @@ jobs:
           fi
 
       - name: Build project
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
         run: |
           bun run build
           if [ $? -ne 0 ]; then
