@@ -39,6 +39,7 @@ export default function ListList() {
             <TableCell className="text-right">{dateFormatter.format(list.created_at)}</TableCell>
             <TableCell className="text-right">
               <Button onClick={() => navigate(ListRoutes.delete(list.id))}>Delete</Button>
+              <Button onClick={() => navigate(ListRoutes.edit(list.id))}>Edit</Button>
             </TableCell>
           </TableRow>
         ))}
