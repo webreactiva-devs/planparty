@@ -7,13 +7,16 @@ const ListDeletePage = lazy(() => import("./delete/ListDeletePage"));
 
 export class ListRoutes {
   static list = "/lists";
+  static detail = (id: string) => `/lists/${id}`;
   static create = "/lists/new";
   static delete = (id: string) => `/lists/${id}/delete`;
 
   static init = () => (
-    <Route path={"/lists"} element={<ListListPage />}>
-      <Route path="new" element={<ListCreate />} />
-      <Route path=":id/delete" element={<ListDeletePage />} />
-    </Route>
+    <>
+      <Route path={"/lists"} element={<ListListPage />}>
+        <Route path="new" element={<ListCreate />} />
+        <Route path=":id/delete" element={<ListDeletePage />} />
+      </Route>
+    </>
   );
 }

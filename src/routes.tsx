@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { DummyRoutes } from "@/presentation/dummy/routes";
+import { ItemRoutes } from "@/presentation/item/routes";
 import { ListRoutes } from "@/presentation/list/routes";
 
 export const AppRoutes = () => {
@@ -10,6 +11,7 @@ export const AppRoutes = () => {
       <Route index element={<Navigate to={ListRoutes.list} replace />} />
       {DummyRoutes.init()}
       {ListRoutes.init()}
+      {ItemRoutes.init()}
     </Routes>
   );
 };

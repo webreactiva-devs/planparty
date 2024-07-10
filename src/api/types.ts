@@ -27,6 +27,39 @@ export type Database = {
         };
         Relationships: [];
       };
+      item: {
+        Row: {
+          created_at: string;
+          id: string;
+          list_id: string;
+          name: string | null;
+          quantity: number | null;
+          status: boolean | null;
+          updated_at: string | null;
+          user: string | null;
+        };
+        Insert: {
+          created_at?: string;
+          id?: string;
+          list_id: string;
+          name?: string | null;
+          quantity?: number | null;
+          status?: boolean | null;
+          updated_at?: string | null;
+          user?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          id?: string;
+          list_id?: string;
+          name?: string | null;
+          quantity?: number | null;
+          status?: boolean | null;
+          updated_at?: string | null;
+          user?: string | null;
+        };
+        Relationships: [];
+      };
       list: {
         Row: {
           created_at: string;
